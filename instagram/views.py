@@ -20,17 +20,17 @@ def welcome(request):
         form = NewProfileForm()
     return render(request,'welcome.html',{'form':form})
 
-# @login_required(login_url='/accounts/login/')
-# def instagram(request):
-#     photos = Image.get_all()
-#     return render(request,'all-photos/post.html',{'photos':photos})
+@login_required(login_url='/accounts/login/')
+def instagram(request):
+    photos = Image.get_all()
+    return render(request,'all-photos/post.html',{'photos':photos})
 
-# def image(request,image_id):
-#     try:
-#         image = Image.objects.get(id = image_id)
-#     except ObjectDoesNotExist:
-#         raise Http404()
-#     return render(request,'all-photos/image.html',{'image':image})
+def image(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request,'all-photos/image.html',{'image':image})
 
 # @login_required(login_url='/accounts/login/')
 # def new_image(request):
