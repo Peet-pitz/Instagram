@@ -58,18 +58,18 @@ def profile(request):
     print(profile.bio)
     return render(request,'profile.html',{ 'profile':profile,'image':image,'current_user':current_user})
 
-# def edit_profile(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = NewProfileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             profile = form.save(commit = False)
-#             profile.profile = current_user
-#             profile.save()
-#         return redirect('profile')
-#     else:
-#         form = NewProfileForm()
-#     return render(request,'edit_profile.html', {'form':form})
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit = False)
+            profile.profile = current_user
+            profile.save()
+        return redirect('profile')
+    else:
+        form = NewProfileForm()
+    return render(request,'edit_profile.html', {'form':form})
 
 # def search_results(request):
 
