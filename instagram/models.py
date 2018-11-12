@@ -1,29 +1,29 @@
-# from django.db import models
-# import datetime as dt
-# from django.contrib.auth.models import User
-# from tinymce.models import HTMLField
+from django.db import models
+import datetime as dt
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
-# # Create your models here.
-# class Profile(models.Model):
-#     profile_photo = models.ImageField(upload_to = 'images/', blank = True)
-#     user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
-#     bio = models.TextField(max_length = 100)
+# Create your models here.
+class Profile(models.Model):
+    profile_photo = models.ImageField(upload_to = 'images/', blank = True)
+    user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
+    bio = models.TextField(max_length = 100)
 
-#     def save_profile(self):
-#         self.save()
+    def save_profile(self):
+        self.save()
 
-#     def delete_profile(self):
-#         self.delete()
+    def delete_profile(self):
+        self.delete()
 
-#     @classmethod
-#     def update_profile(cls,profile,update):
-#          updated = cls.objects.filter(Image_name=profile).update(name=update)
-#          return updated
+    @classmethod
+    def update_profile(cls,profile,update):
+         updated = cls.objects.filter(Image_name=profile).update(name=update)
+         return updated
 
-#     @classmethod
-#     def search_by_username(cls,search_term):
-#         instagram = cls.objects.filter(user__username=search_term)
-#         return instagram
+    @classmethod
+    def search_by_username(cls,search_term):
+        instagram = cls.objects.filter(user__username=search_term)
+        return instagram
 
 # class Image(models.Model):
 #     image = models.ImageField(upload_to = 'images/', blank = True)
