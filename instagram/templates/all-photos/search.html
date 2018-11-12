@@ -1,0 +1,29 @@
+<!-- {%extends 'all-photos/base.html'%}
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if profiles %}
+
+    {% else %}
+      <h2> Found 0 profile for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if profiles %}
+    {% for profile in profiles %}
+      <div class="col-sm-6 col-md-3">
+          <h2> <a href="/search_profile/{{profile.id}}">{{profile.user}} </a></h2>
+           <button class="btn btn-info btn-sm">follow</button>
+                  <br>
+                  <br>
+
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %} -->

@@ -1,0 +1,39 @@
+<!-- {% extends 'all-photos/base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% if profile.user %}
+    <div class="col-md-4">
+      <style>
+      img.radius {
+      border-radius: 50%;
+      }
+      </style>
+      <img src="{{profile.profile_photo.url}}"  class = "radius" alt="Image" class="img-responsive">
+    </div>
+    <div class="col-md-4">
+      <h2>{{profile.user}}</h2>
+      <p> Bio: {{profile.bio}}</p>
+
+    </div>
+    {% else %}
+    </p>No profile description</p>
+    {% endif %}
+  </div>
+  <br><br>
+
+  <div class="row">
+    <h2 class="text-center"> Uploaded Photo</h2>
+    {% for insta_item in image %}
+    <div class="col-md-4">
+      <a href="{% url 'image' insta_item.id %}"><img src="{{insta_item.image.url}}" class="img-responsive" alt="Image"></a>
+    </div>
+    {% endfor%}
+
+
+  </div>
+
+</div>
+
+
+{% endblock %} -->

@@ -1,0 +1,55 @@
+<!-- {% load bootstrap3 %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico" rel="stylesheet">
+  {% if title %}
+  <title>Gram - {{title}}</title>
+  {% else %}
+    <title> Gram </title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/basephotos.css'%}">
+  {% endblock %}
+
+</head>
+<body style="background-color:black" >
+
+    {% include "navbar.html" %}
+    <h1>gram</h1>
+    {% block content %}{%endblock%}
+
+    {% block scripts %} -->
+    
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+   
+
+    <script>
+        function myFunction() {
+            /* Get the text field */
+            var copyText = document.getElementById("myInput");
+
+            /* Select the text field */
+            copyText.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+            /* Alert the copied text */
+            alert("Copied the text: " + copyText.value);
+            }
+//     </script>
+//     {% bootstrap_javascript%}
+// {% endblock %}
+//   </body>
+//   </html>
+
+  

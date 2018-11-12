@@ -1,0 +1,25 @@
+<!-- {%extends 'all-photos/base.html'%}
+
+ {% block content %}
+
+ <div class="container">
+
+   <div class="row">
+     <img src="{{photos.image.url}}"  class="img-responsive" alt="">
+   </div>
+
+   <div class="row">
+     <h1 class="text-center">{{photo.title}}</h1>
+   </div>
+
+   <div class="row">
+     <p>{{photo.post}}</p>
+   </div>
+
+   <div class="row">
+     <p>Posted {{photo.pub_date|timesince}} by {{photo.editor.first_name}}</p>
+   </div>
+
+ </div>
+ <h4>Link to this Image:<span><input id="myInput" type="text" value="https://personalgallery007.herokuapp.com/image/{{image.id}}"><a href="#" class="btn" onclick="myFunction()">copy</a></span></h4>
+ {% endblock %} -->
