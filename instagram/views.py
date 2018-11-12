@@ -46,17 +46,17 @@ def new_image(request):
         form = NewImageForm()
     return render(request,'new_image.html', {'form':form})
 
-# def profile(request):
-#     current_user = request.user
-#     image = Image.objects.filter(profile = current_user)
+def profile(request):
+    current_user = request.user
+    image = Image.objects.filter(profile = current_user)
 
-#     try:
-#         # profile = get_object_or_404(Profile,user=current_user)
-#         profile = Profile.objects.get(user=current_user)
-#     except ObjectDoesNotExist:
-#         return redirect('welcome')
-#     print(profile.bio)
-#     return render(request,'profile.html',{ 'profile':profile,'image':image,'current_user':current_user})
+    try:
+        # profile = get_object_or_404(Profile,user=current_user)
+        profile = Profile.objects.get(user=current_user)
+    except ObjectDoesNotExist:
+        return redirect('welcome')
+    print(profile.bio)
+    return render(request,'profile.html',{ 'profile':profile,'image':image,'current_user':current_user})
 
 # def edit_profile(request):
 #     current_user = request.user
