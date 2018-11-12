@@ -25,30 +25,30 @@ class Profile(models.Model):
         instagram = cls.objects.filter(user__username=search_term)
         return instagram
 
-# class Image(models.Model):
-#     image = models.ImageField(upload_to = 'images/', blank = True)
-#     image_name = models.CharField(max_length = 30)
-#     image_caption = models.TextField(max_length = 200)
-#     profile = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
-#     pub_date = models.DateTimeField(auto_now_add=True)
+class Image(models.Model):
+    image = models.ImageField(upload_to = 'images/', blank = True)
+    image_name = models.CharField(max_length = 30)
+    image_caption = models.TextField(max_length = 200)
+    profile = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
 
 
-#     def save_image(self):
-#         self.save()
+    def save_image(self):
+        self.save()
 
-#     def delete_image(self):
-#         self.delete()
+    def delete_image(self):
+        self.delete()
 
-#     @classmethod
-#     def get_all(cls):
-#         images = cls.objects.all()
-#         return images
+    @classmethod
+    def get_all(cls):
+        images = cls.objects.all()
+        return images
 
-#     @classmethod
-#     def get_image(cls, image_id):
-#         image = cls.objects.get(id=image_id)
-#         return image
+    @classmethod
+    def get_image(cls, image_id):
+        image = cls.objects.get(id=image_id)
+        return image
 
 # class Comment(models.Model):
 #     comment_photo = models.ForeignKey(Image,on_delete = models.CASCADE, blank = True)
