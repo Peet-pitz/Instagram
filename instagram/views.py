@@ -1,24 +1,24 @@
-# from django.shortcuts import render,redirect,get_object_or_404
-# from django.http  import HttpResponse,Http404
-# from .models import Image,Profile,Comment
-# from django.core.exceptions import ObjectDoesNotExist
-# from .email import send_welcome_email
-# from django.contrib.auth.decorators import login_required
-# from .forms import NewImageForm,NewProfileForm,NewCommentForm
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http  import HttpResponse,Http404
+from .models import Image,Profile,Comment
+from django.core.exceptions import ObjectDoesNotExist
+from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
+from .forms import NewImageForm,NewProfileForm,NewCommentForm
 
-# # Create your views here.
-# def welcome(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = NewProfileForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             profile = form.save(commit = False)
-#             profile.user = current_user
-#             profile.save()
-#         return redirect('insta-Profile')
-#     else:
-#         form = NewProfileForm()
-#     return render(request,'welcome.html',{'form':form})
+# Create your views here.
+def welcome(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit = False)
+            profile.user = current_user
+            profile.save()
+        return redirect('insta-Profile')
+    else:
+        form = NewProfileForm()
+    return render(request,'welcome.html',{'form':form})
 
 # @login_required(login_url='/accounts/login/')
 # def instagram(request):
