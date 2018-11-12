@@ -94,17 +94,17 @@ def search_profile(request,profile_id):
 
     return render(request, 'all-photos/search_profile.html', {'profile':profile})
 
-# def comment_photo(request, image_id):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         form = NewCommentForm(request.POST, request.FILES)
-#         image = get_object_or_404(Image, pk = image_id)
-#         if form.is_valid():
-#             comment = form.save(commit = False)
-#             comment.comment = current_user
-#             comment.image = image
-#             comment.save()
-#         return redirect('comment-photo')
-#     else:
-#         form = NewCommentForm()
-#     return render(request,'comment.html', {'form':form})
+def comment_photo(request, image_id):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewCommentForm(request.POST, request.FILES)
+        image = get_object_or_404(Image, pk = image_id)
+        if form.is_valid():
+            comment = form.save(commit = False)
+            comment.comment = current_user
+            comment.image = image
+            comment.save()
+        return redirect('comment-photo')
+    else:
+        form = NewCommentForm()
+    return render(request,'comment.html', {'form':form})
