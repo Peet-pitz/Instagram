@@ -84,15 +84,15 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-photos/search.html',{"message":message})
 
-# def search_profile(request,profile_id):
-#     try :
-#         profile = Profile.objects.get(id = profile_id)
+def search_profile(request,profile_id):
+    try :
+        profile = Profile.objects.get(id = profile_id)
 
-#     except ObjectDoesNotExist:
-#         # raise Http404()
-#         return render(request, 'all-photos/no_profile.html')
+    except ObjectDoesNotExist:
+        # raise Http404()
+        return render(request, 'all-photos/no_profile.html')
 
-#     return render(request, 'all-photos/search_profile.html', {'profile':profile})
+    return render(request, 'all-photos/search_profile.html', {'profile':profile})
 
 # def comment_photo(request, image_id):
 #     current_user = request.user
