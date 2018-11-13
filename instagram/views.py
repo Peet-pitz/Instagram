@@ -27,10 +27,10 @@ def instagram(request):
 
 def image(request,image_id):
     try:
-        image = Image.objects.get(id = image_id)
+        photos = Image.objects.get(id = image_id)
     except ObjectDoesNotExist:
         raise Http404()
-    return render(request,'all-photos/image.html',{'image':image})
+    return render(request,'all-photos/image.html',{'photos':photos})
 
 @login_required(login_url='/accounts/login/')
 def new_image(request):
@@ -41,7 +41,7 @@ def new_image(request):
             image = form.save(commit = False)
             image.profile = current_user
             image.save()
-        return redirect('instaToday')
+        return redirect('post')
     else:
         form = NewImageForm()
     return render(request,'new_image.html', {'form':form})
