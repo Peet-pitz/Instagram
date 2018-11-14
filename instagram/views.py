@@ -22,8 +22,8 @@ def welcome(request):
 
 @login_required(login_url='/accounts/login/')
 def instagram(request):
-    photos = Image.get_all()
-    return render(request,'all-photos/post.html',{'photos':photos})
+    instagram = Image.get_all()
+    return render(request,'all-photos/post.html',{'instagram':instagram})
 
 def image(request,image_id):
     try:
@@ -66,7 +66,7 @@ def edit_profile(request):
             profile = form.save(commit = False)
             profile.profile = current_user
             profile.save()
-        return redirect('profile')
+        return redirect('insta-Profile')
     else:
         form = NewProfileForm()
     return render(request,'edit_profile.html', {'form':form})

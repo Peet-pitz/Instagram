@@ -4,22 +4,16 @@
 
 <div class="container">
 <div class="row">
-    {% for photos_item in photos %}
+    {% for insta_item in instagram %}
     <div class="col-md-6 well">
         <div class="scale">
           <h5> <b>{{insta_item.profile}} </b></h5>
-          <a href="{% url 'image' insta_item.id %}"><img  src="{{insta_item.image.url}}" class="img-responsive" alt="Image" width="500px" height="450px"></a>
+          <a href="{% url 'image' insta_item.id %}"><img src="{{insta_item.image.url}}" class="img-responsive" alt="Image" width="500px" height="450px"></a>
           <br>
           <h4 class="btn btn-lg"><i class="far fa-heart" style="font-size:24px"></i></h4>{{insta_item.likes}}
           <a href="/comment-photo"> <h4 class="btn btn-lg" ><i class="far fa-comment" style="font-size:24px;color:black;"></i> </h4> </a>{{insta_item.comment}}
           <br>
           {{insta_item.image_caption}}
-
-          
-
-            
- 
-             
             </div>
            <a class="img-fluid myimage" href="#"> <img src="{{photos_item.image.url}}" class="image-responsive"></a>
            
