@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http  import HttpResponse,Http404
-from .models import Image,Profile,Comment
+from .models import Image,Profile,Comment,Followers
 from django.core.exceptions import ObjectDoesNotExist
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
@@ -58,6 +58,23 @@ def profile(request):
     print(profile.bio)
     return render(request,'profile.html',{ 'profile':profile,'image':image,'current_user':current_user})
 
+# def profile(request, username):
+# 	if User.objects.filter(username=username).exists():
+# 		u = User.objects.filter(username=username)[0]
+# 		if not Followers.objects.filter(user=username, follower=request.user.username).exists():
+# 			following = "Follow"
+# 		else:
+# 			following = "Unfollow"
+
+# 		if u.profilepic == "":
+# 			u.profilepic = "static/assets/img/default.png"
+# 		context = { "ProfilePic": u.profilepic, "whosprofile": username, "logged_in_as": request.user.username, "following": following }
+# 		if request.user.is_authenticated:
+# 			return render(request, 'logged-in-profile.html', context)
+# 		return render(request, 'profile.html', context)
+# 	else:
+# 		return redirect(home)
+
 def edit_profile(request):
     current_user = request.user
     if request.method == 'POST':
@@ -108,3 +125,8 @@ def comment_photo(request, image_id):
     else:
         form = NewCommentForm()
     return render(request,'comment.html', {'form':form})
+
+def ajaxfollow(request):
+    ajax = AjaxFollow(request.Get,request.user)
+    context = { 'ajax_output': ajax.output() }
+    return render(request, 'ajax.html',context)

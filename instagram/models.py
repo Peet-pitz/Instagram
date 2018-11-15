@@ -67,3 +67,7 @@ class Comment(models.Model):
     def get_comments_by_images(cls, id):
         comments = Comment.objects.filter(image_pk = id)
         return comments
+
+class Followers(models.Model):
+    user = models.CharField(max_length=20, default="")
+    follower = models.CharField(max_length=20, default="")
